@@ -1,25 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #F8FBFF;
-  overflow-x: hidden;
-}
-
-.app {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px;
-}
-
-/* Colors */
 :root {
-  --primary: #FF6B6B;
-  --secondary: #4ECDC4;
+  --primary: #4ECDC4;
+  --primary-dark: #45B8AF;
+  --primary-light: #5FE3D5;
+  --secondary: #FF6B6B;
   --tertiary: #FFE66D;
   --accent: #95E1D3;
   --background: #F8FBFF;
@@ -29,6 +12,25 @@ body {
   --light-gray: #E8E8E8;
   --success: #4CAF50;
   --error: #F44336;
+  --warning: #FF9800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
 }
 
 /* Animations */
@@ -70,6 +72,35 @@ body {
   }
 }
 
+@keyframes celebrate {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes partyPop {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+  50% {
+    transform: translateY(-60px) rotate(20deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(-10deg);
+  }
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -84,6 +115,14 @@ body {
 
 .pulse {
   animation: pulse 1.5s ease-in-out infinite;
+}
+
+.celebrate {
+  animation: celebrate 0.8s ease-in-out;
+}
+
+.party-pop {
+  animation: partyPop 0.8s ease-in-out;
 }
 
 /* Buttons */
@@ -109,6 +148,10 @@ button:active {
 .btn-primary {
   background: var(--primary);
   color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
 }
 
 .btn-secondary {
